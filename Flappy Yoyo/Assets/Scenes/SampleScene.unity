@@ -307,6 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 2
+  tug: 4
+  tugRate: 6
   stringObj: {fileID: 1980965437}
 --- !u!1 &1980965437
 GameObject:

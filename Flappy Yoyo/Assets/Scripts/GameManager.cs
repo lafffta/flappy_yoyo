@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+class Pause
+{
+     public static bool isPaused = false;
+}
+
 public class GameManager : MonoBehaviour
 {
     public float spawnTime = 2f;
@@ -16,12 +21,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentGameTime += Time.deltaTime;
-        if(currentGameTime >= spawnTime) {
-            currentGameTime = 0.0f;
-            Instantiate(catPrefab, new Vector3(12.5f, Random.Range(-2.26f, -6.26f), 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
-            // Instantiate(catPrefab, new Vector3(10.09f, -2.26f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
-            // Instantiate(catPrefab, new Vector3(5.09f, -6.26f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
+        if(!Pause.isPaused) {
+            currentGameTime += Time.deltaTime;
+            if(currentGameTime >= spawnTime) {
+                currentGameTime = 0.0f;
+                Instantiate(catPrefab, new Vector3(12.5f, Random.Range(-2.26f, -6.26f), 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
+                // Instantiate(catPrefab, new Vector3(10.09f, -2.26f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
+                // Instantiate(catPrefab, new Vector3(5.09f, -6.26f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
+            }
         }
     }
 }

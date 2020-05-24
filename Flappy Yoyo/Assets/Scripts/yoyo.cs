@@ -23,33 +23,34 @@ public class yoyo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // GRAVITY
-        // transform.position = transform.position + gChange;
-        // stringObj.transform.position = stringObj.transform.position + gChange;
+        if(!Pause.isPaused) {
+            // GRAVITY
+            // transform.position = transform.position + gChange;
+            // stringObj.transform.position = stringObj.transform.position + gChange;
 
-        Vector3 currChange;
+            Vector3 currChange;
 
-        if(Time.time > nextTugTime) {
-            tugging = false;
-            if(Input.GetMouseButton(0)) {
-                tugging = true;
-                nextTugTime = Time.time + 1f / tugRate;
+            if(Time.time > nextTugTime) {
+                tugging = false;
+                if(Input.GetMouseButton(0)) {
+                    tugging = true;
+                    nextTugTime = Time.time + 1f / tugRate;
+                }
+            }
+
+            if(tugging) {   // accel up from tug
+                currChange = tChange + gChange;
+                transform.position = transform.position + currChange;
+                stringObj.transform.position = stringObj.transform.position + currChange;
+            } else { // otherwise just apply gravity
+                transform.position = transform.position + gChange;
+                stringObj.transform.position = stringObj.transform.position + gChange;
             }
         }
-
-        if(tugging) {   // accel up from tug
-            currChange = tChange + gChange;
-            transform.position = transform.position + currChange;
-            stringObj.transform.position = stringObj.transform.position + currChange;
-        } else { // otherwise just apply gravity
-            transform.position = transform.position + gChange;
-            stringObj.transform.position = stringObj.transform.position + gChange;
-        }
-        
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("OnCollisionEnter2D");
+        Pause.isPaused = true;
     }
 }

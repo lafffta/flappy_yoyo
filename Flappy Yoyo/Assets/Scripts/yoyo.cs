@@ -12,12 +12,15 @@ public class yoyo : MonoBehaviour
     private Vector3 tChange;
     bool tugging = false;
 
+    public GameManager gameManager;
+
     public GameObject stringObj;
     // Start is called before the first frame update
     void Start()
     {
         gChange = new Vector3(0f, -gravity*Time.deltaTime, 0f);
         tChange = new Vector3(0f, tug*Time.deltaTime, 0f);
+        gameManager=FindObjectsOfType<GameManager>()[0];
     }
 
     // Update is called once per frame
@@ -52,5 +55,6 @@ public class yoyo : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         Pause.isPaused = true;
+        gameManager.deathUpdate();
     }
 }

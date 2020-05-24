@@ -8,12 +8,14 @@ public class cat : MonoBehaviour
     public Vector3 catChange;
     public yoyo player;
     private bool notScored = true;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         // catChange = new Vector3(-catSpeed*Time.deltaTime, 0f, 0f); // now handled in game manager so it is constant for all cats
         player=FindObjectsOfType<yoyo>()[0];
+        gameManager=FindObjectsOfType<GameManager>()[0];
     }
 
     // Update is called once per frame
@@ -23,7 +25,8 @@ public class cat : MonoBehaviour
             transform.position += catChange;
             if(notScored) {
                 if(transform.position.x < player.transform.position.x) {
-                    Debug.Log("Score!\n");
+                    gameManager.score += 1;
+                    gameManager.updateScoreText();
                     notScored = false;
                 }
             } else if(transform.position.x < -30f) {

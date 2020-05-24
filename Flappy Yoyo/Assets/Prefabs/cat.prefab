@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3823372731935733791}
   m_Layer: 11
   m_Name: cat
-  m_TagString: Untagged
+  m_TagString: cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catSpeed: 1
+  catChange: {x: -0.02, y: 0, z: 0}
+  player: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &3823372732486592831
 GameObject:
   m_ObjectHideFlags: 0

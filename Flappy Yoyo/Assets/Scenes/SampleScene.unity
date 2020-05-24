@@ -284,6 +284,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &591351690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 761059863745460015, guid: 0a1c62450c2598f4cb611a4f1ed76024,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174205117942507282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &631049858
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -109.6, y: -34.100006}
+  m_AnchoredPosition: {x: -109.600006, y: -34.100006}
   m_SizeDelta: {x: 219.1, y: 67.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &892165830
@@ -813,6 +819,8 @@ MonoBehaviour:
   scoreText: {fileID: 892165830}
   pauseText: {fileID: 1788100848}
   bestText: {fileID: 631049860}
+  stringObj: {fileID: 1980965437}
+  yoyo: {fileID: 591351690}
 --- !u!1001 &1174205117942507282
 PrefabInstance:
   m_ObjectHideFlags: 0

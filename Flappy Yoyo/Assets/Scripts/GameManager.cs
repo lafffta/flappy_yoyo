@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public Text pauseText;
     public Text bestText;
 
+    public GameObject stringObj;
+    public GameObject yoyo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,17 @@ public class GameManager : MonoBehaviour
                 updateScoreText();
                 currentGameTime = 2.0f;
                 // reset player and delete all cats here
+                stringObj.transform.position = new Vector3(0f,25.94f,0f);
+                yoyo.transform.position = new Vector3(0f,0f,0f);
+                GameObject[] cats = GameObject.FindGameObjectsWithTag("cat");
+                foreach(GameObject c in cats) {
+                    foreach (Transform child in c.transform) {
+                        Destroy(child.gameObject);
+                    }
+                    Destroy(c);
+                    c.GetComponent<Renderer>().enabled = false;
+                }
+                Pause.isPaused = false;
             }
         }
     }

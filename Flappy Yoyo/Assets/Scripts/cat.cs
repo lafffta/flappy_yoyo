@@ -18,9 +18,9 @@ public class cat : MonoBehaviour
         transform.position += catChange;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.tag.Equals("Player")) {
-            Debug.Log("Player hit cat!\n");
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other) {
+    //     if(other.tag.Equals("Player")) {
+    //         Debug.Log("Player hit cat!\n");
+    //     }
+    // }
 }

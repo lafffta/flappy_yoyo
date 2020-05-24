@@ -36,12 +36,4 @@ public class camera : MonoBehaviour
         colliderpoints[1] = new Vector2(rUCorner.x, lDCorner.y);
         rightEdge.points = colliderpoints;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!Pause.isPaused) {
-            
-        }
-    }
 }

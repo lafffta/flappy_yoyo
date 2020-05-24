@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75aaad53b4670a344939e2ccc283cec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catSpeed: 1
-  catChange: {x: -0.02, y: 0, z: 0}
+  catSpeed: 2
+  catChange: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   gameManager: {fileID: 0}
 --- !u!1 &3823372732486592831

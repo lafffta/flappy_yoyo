@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cat : MonoBehaviour
 {
-    public float catSpeed = 1.0f;
+    public float catSpeed = 2.0f;
     public Vector3 catChange;
     public yoyo player;
     private bool notScored = true;
@@ -19,7 +19,7 @@ public class cat : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         if(!Pause.isPaused) {
             transform.position += catChange;

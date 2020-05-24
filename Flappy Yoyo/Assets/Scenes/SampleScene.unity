@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 332961864}
   - component: {fileID: 332961863}
   m_Layer: 5
-  m_Name: Text
+  m_Name: pauseSubText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tap/click to restart
+  m_Text: Click to start
 --- !u!222 &332961864
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DEAD
+  m_Text: PLAY
 --- !u!222 &1788100849
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -811,13 +811,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdaf9278afbc1247968dd635b0c9d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 2
+  spawnTime: 3
   catPrefab: {fileID: 3823372731935733791, guid: 503c304962c876b41b44eafd7256041a,
     type: 3}
   score: 0
   best: 0
   scoreText: {fileID: 892165830}
   pauseText: {fileID: 1788100848}
+  pauseSubText: {fileID: 332961863}
   bestText: {fileID: 631049860}
   stringObj: {fileID: 1980965437}
   yoyo: {fileID: 591351690}
@@ -833,6 +834,21 @@ PrefabInstance:
       propertyPath: stringObj
       value: 
       objectReference: {fileID: 1980965437}
+    - target: {fileID: 761059863745460013, guid: 0a1c62450c2598f4cb611a4f1ed76024,
+        type: 3}
+      propertyPath: gravity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 761059863745460013, guid: 0a1c62450c2598f4cb611a4f1ed76024,
+        type: 3}
+      propertyPath: tug
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 761059863745460013, guid: 0a1c62450c2598f4cb611a4f1ed76024,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2100724266}
     - target: {fileID: 761059863745460015, guid: 0a1c62450c2598f4cb611a4f1ed76024,
         type: 3}
       propertyPath: m_Name

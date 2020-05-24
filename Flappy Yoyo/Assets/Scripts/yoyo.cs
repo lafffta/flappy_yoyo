@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class yoyo : MonoBehaviour
 {
-    public float gravity = 2.0f;
-    public float tug = 4.0f;
+    public float gravity = 5.0f;
+    public float tug = 10.0f;
     public float tugRate = 6.0f;
     float nextTugTime = 0f;
     private Vector3 gChange;
@@ -18,8 +18,8 @@ public class yoyo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gChange = new Vector3(0f, -gravity*Time.deltaTime, 0f);
-        tChange = new Vector3(0f, tug*Time.deltaTime, 0f);
+        gChange = new Vector3(0f, -gravity*Time.fixedDeltaTime, 0f);
+        tChange = new Vector3(0f, tug*Time.fixedDeltaTime, 0f);
         gameManager=FindObjectsOfType<GameManager>()[0];
     }
 
@@ -27,12 +27,6 @@ public class yoyo : MonoBehaviour
     void Update()
     {
         if(!Pause.isPaused) {
-            // GRAVITY
-            // transform.position = transform.position + gChange;
-            // stringObj.transform.position = stringObj.transform.position + gChange;
-
-            Vector3 currChange;
-
             if(Time.time > nextTugTime) {
                 tugging = false;
                 if(Input.GetMouseButton(0)) {
@@ -40,7 +34,15 @@ public class yoyo : MonoBehaviour
                     nextTugTime = Time.time + 1f / tugRate;
                 }
             }
+        }
+    }
 
+    private void FixedUpdate() {
+        if(!Pause.isPaused) {
+            // GRAVITY
+            // transform.position = transform.position + gChange;
+            // stringObj.transform.position = stringObj.transform.position + gChange;
+            Vector3 currChange;
             if(tugging) {   // accel up from tug
                 currChange = tChange + gChange;
                 transform.position = transform.position + currChange;

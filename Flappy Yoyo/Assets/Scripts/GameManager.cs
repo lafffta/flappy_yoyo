@@ -42,12 +42,11 @@ public class GameManager : MonoBehaviour
                 // Instantiate(catPrefab, new Vector3(5.09f, -6.26f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
             }
         } else {
-            if(Input.GetMouseButton(0)) {
+            if(Input.GetMouseButton(0)) { // reset game if player clicks
                 pauseText.gameObject.SetActive(false);
                 score = 0;
                 updateScoreText();
                 currentGameTime = 2.0f;
-                // reset player and delete all cats here
                 stringObj.transform.position = new Vector3(0f,25.94f,0f);
                 yoyo.transform.position = new Vector3(0f,0f,0f);
                 GameObject[] cats = GameObject.FindGameObjectsWithTag("cat");
@@ -66,10 +65,13 @@ public class GameManager : MonoBehaviour
     public void updateScoreText()
     {
         scoreText.text = "Score: "+score.ToString();
+        if(score > best) {
+            best=score;
+            bestText.text = "Best: "+best.ToString();
+        }
     }
     public void deathUpdate()
     {
         pauseText.gameObject.SetActive(true);
-        // update best score here
     }
 }

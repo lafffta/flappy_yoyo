@@ -6,7 +6,7 @@ public class yoyo : MonoBehaviour
 {
     public float gravity = 5.0f;
     public float tug = 10.0f;
-    public float tugRate = 6.0f;
+    public float tugRate = 5.0f;
     float nextTugTime = 0f;
     private Vector3 gChange;
     private Vector3 tChange;

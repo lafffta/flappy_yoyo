@@ -5,8 +5,8 @@ using UnityEngine;
 public class yoyo : MonoBehaviour
 {
     public float gravity = 0.35f;
-    public float tug = 0.8f;
-    public float tugRate = 5.0f;
+    public float tug = 10f;
+    public float tugRate = 6.0f;
     float nextTugTime = 0f;
     public Vector3 gChange;
     public Vector3 tChange;
@@ -43,26 +43,21 @@ public class yoyo : MonoBehaviour
     private float hangtime = 0f;
     private void FixedUpdate() {
         if(!Pause.isPaused) {
-            // GRAVITY
-            // transform.position = transform.position + gChange;
-            // stringObj.transform.position = stringObj.transform.position + gChange;
             Vector3 currChange;
+            gChange += new Vector3(0f, -gravity*Time.fixedDeltaTime, 0f);
+            tChange = new Vector3(0f, tug*Time.fixedDeltaTime, 0f);
+
             if(tugging) {   // accel up from tug
                 hangtime = gDelay;
-                gChange += new Vector3(0f, -gravity*Time.fixedDeltaTime, 0f);
-                tChange += new Vector3(0f, tug*Time.fixedDeltaTime, 0f);
-                currChange = tChange;
+                currChange = tChange+gChange;
                 transform.position = transform.position + currChange;
                 stringObj.transform.position = stringObj.transform.position + currChange;
-            } else { // otherwise just apply gravity
+            } else {  // otherwise just apply gravity
                 hangtime -= Time.fixedDeltaTime;
                 if(hangtime <= 0) {
-                    gChange += new Vector3(0f, -gravity*Time.fixedDeltaTime, 0f);
-                    tChange = new Vector3(0f, tug*Time.fixedDeltaTime, 0f);
-                    transform.position = transform.position + gChange;
-                    stringObj.transform.position = stringObj.transform.position + gChange;
-                } else {
-                    
+                    currChange = gChange;
+                    transform.position = transform.position + currChange;
+                    stringObj.transform.position = stringObj.transform.position + currChange;
                 }
             }
         }

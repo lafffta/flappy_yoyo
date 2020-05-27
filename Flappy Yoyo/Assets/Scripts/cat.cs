@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cat : MonoBehaviour
 {
-    public float catSpeed = 2.5f;
+    public float catSpeed = 3f;
     public Vector3 catChange;
     public yoyo player;
     private bool notScored = true;

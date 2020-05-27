@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
             score = 0;
             updateScoreText();
             currentGameTime = 2.0f;
-            stringObj.transform.position = new Vector3(0f,25.94f,0f);
-            yoyo.transform.position = new Vector3(0f,0f,0f);
+            stringObj.transform.position = new Vector3(-1.8f,25.94f,0f);
+            yoyo.transform.position = new Vector3(-1.8f,0f,0f);
             GameObject[] cats = GameObject.FindGameObjectsWithTag("cat");
             foreach(GameObject c in cats) {
                 foreach (Transform child in c.transform) {
@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
                 Destroy(c);
                 c.GetComponent<Renderer>().enabled = false;
             }
+            yoyo.GetComponent<yoyo>().gChange = new Vector3(0f, -yoyo.GetComponent<yoyo>().gravity*Time.fixedDeltaTime, 0f);
+            yoyo.GetComponent<yoyo>().tChange = new Vector3(0f, yoyo.GetComponent<yoyo>().tug*Time.fixedDeltaTime, 0f);
             Pause.isPaused = false;
         }
 

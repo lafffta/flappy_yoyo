@@ -895,6 +895,11 @@ PrefabInstance:
       propertyPath: stringObj
       value: 
       objectReference: {fileID: 1980965437}
+    - target: {fileID: 5138446376286987602, guid: 0a1c62450c2598f4cb611a4f1ed76024,
+        type: 3}
+      propertyPath: tug
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5138446376286987605, guid: 0a1c62450c2598f4cb611a4f1ed76024,
         type: 3}
       propertyPath: m_Name

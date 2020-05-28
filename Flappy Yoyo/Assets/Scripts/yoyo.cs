@@ -5,7 +5,7 @@ using UnityEngine;
 public class yoyo : MonoBehaviour
 {
     public float gravity = 0.35f;
-    public float tug = 10f;
+    public float tug = 9f;
     public float tugRate = 6.0f;
     float nextTugTime = 0f;
     public Vector3 gChange;

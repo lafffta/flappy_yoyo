@@ -26,9 +26,14 @@ public class GameManager : MonoBehaviour
 
     public float resetTimer = 0.7f; // timer to adjust how long before player can restart
     private float initTime;
+    public AudioSource audioSource;
+    public AudioSource bgmSource;
+    public AudioClip deathClip;
+
     // Start is called before the first frame update
     void Start()
     {
+        // audioSource = FindObjectsOfType<AudioSource>()[0];
         initTime = resetTimer;
         // pauseText.gameObject.SetActive(false);
         catPrefab.catChange = new Vector3(-catPrefab.catSpeed*Time.fixedDeltaTime, 0f, 0f);
@@ -63,6 +68,7 @@ public class GameManager : MonoBehaviour
 
         if(resetTimer <= 0f) {
             if(Input.GetMouseButton(0)) { // reset game if player clicks after a short pause
+                bgmSource.Play();
                 resetFlag = true;
             }
         }
@@ -93,6 +99,8 @@ public class GameManager : MonoBehaviour
     }
     public void deathUpdate()
     {
+        bgmSource.Stop();
+        audioSource.PlayOneShot(deathClip, 0.7f);
         pauseText.text = "DEAD";
         pauseSubText.text = "Click to restart";
         pauseText.gameObject.SetActive(true);

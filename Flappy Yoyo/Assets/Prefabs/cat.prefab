@@ -99,6 +99,8 @@ MonoBehaviour:
   catChange: {x: -0.049999997, y: 0, z: 0}
   player: {fileID: 0}
   gameManager: {fileID: 0}
+  audioSource: {fileID: 0}
+  scoreClip: {fileID: 8300000, guid: 6ee87d9979358554c827d670bff7e87e, type: 3}
 --- !u!70 &361762850609488986
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

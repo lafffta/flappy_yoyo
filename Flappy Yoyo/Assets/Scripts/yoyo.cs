@@ -16,6 +16,9 @@ public class yoyo : MonoBehaviour
     public GameManager gameManager;
 
     public GameObject stringObj;
+    public AudioClip tugClip;
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,7 @@ public class yoyo : MonoBehaviour
         gChange = new Vector3(0f, 0f, 0f);
         tChange = new Vector3(0f, 0f, 0f);
         gameManager=FindObjectsOfType<GameManager>()[0];
+        // audioSource = FindObjectsOfType<AudioSource>()[0];
     }
 
     // Update is called once per frame
@@ -35,6 +39,7 @@ public class yoyo : MonoBehaviour
                     tugging = true;
                     nextTugTime = Time.time + 1f / tugRate;
                     gChange = new Vector3(0f, 0f, 0f);
+                    audioSource.PlayOneShot(tugClip, 0.7f);
                 }
             }
         }

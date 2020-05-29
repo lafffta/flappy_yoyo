@@ -10,9 +10,13 @@ public class cat : MonoBehaviour
     private bool notScored = true;
     public GameManager gameManager;
 
+    public AudioSource audioSource;
+    public AudioClip scoreClip;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = FindObjectsOfType<AudioSource>()[0];
         // catChange = new Vector3(-catSpeed*Time.deltaTime, 0f, 0f); // now handled in game manager so it is constant for all cats
         player=FindObjectsOfType<yoyo>()[0];
         gameManager=FindObjectsOfType<GameManager>()[0];
@@ -26,6 +30,7 @@ public class cat : MonoBehaviour
             if(notScored) {
                 if(transform.position.x < player.transform.position.x) {
                     gameManager.score += 1;
+                    audioSource.PlayOneShot(scoreClip, 0.7f);
                     gameManager.updateScoreText();
                     notScored = false;
                 }

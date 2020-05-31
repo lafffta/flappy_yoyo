@@ -30,34 +30,37 @@ public class yoyo : MonoBehaviour
     }
 
     // Update is called once per frame
+    private float hangtime = 0f;
     void Update()
     {
         if(!Pause.isPaused) {
             if(Time.time > nextTugTime) {
-                tugging = false;
-                if(Input.GetMouseButton(0)) {
+                 if(Input.GetMouseButtonDown(0)) {
+                    hangtime = gDelay;
                     tugging = true;
-                    nextTugTime = Time.time + 1f / tugRate;
-                    gChange = new Vector3(0f, 0f, 0f);
+
                     audioSource.PlayOneShot(tugClip, 0.7f);
-                }
+                    gChange = new Vector3(0f, 0f, 0f);
+                    nextTugTime = Time.time + 1f / tugRate;
+                 } else {
+                    tugging = false;
+                 }
             }
+
         }
     }
 
-    private float hangtime = 0f;
     private void FixedUpdate() {
         if(!Pause.isPaused) {
             Vector3 currChange;
             gChange += new Vector3(0f, -gravity*Time.fixedDeltaTime, 0f);
-            tChange = new Vector3(0f, tug*Time.fixedDeltaTime, 0f);
-
             if(tugging) {   // accel up from tug
-                hangtime = gDelay;
+                tChange = new Vector3(0f, tug*Time.fixedDeltaTime, 0f);
                 currChange = tChange+gChange;
                 transform.position = transform.position + currChange;
                 stringObj.transform.position = stringObj.transform.position + currChange;
             } else {  // otherwise just apply gravity
+                
                 hangtime -= Time.fixedDeltaTime;
                 if(hangtime <= 0) {
                     currChange = gChange;

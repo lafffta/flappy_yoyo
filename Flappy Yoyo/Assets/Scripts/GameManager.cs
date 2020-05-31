@@ -80,9 +80,9 @@ public class GameManager : MonoBehaviour
             currentGameTime += Time.fixedDeltaTime;
             if(currentGameTime >= spawnTime) {
                 currentGameTime = 0.0f;
-                Instantiate(catPrefab, new Vector3(9.5f, Random.Range(-2.26f, -6.26f), 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
-                // Instantiate(catPrefab, new Vector3(10.09f, -2.26f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
-                // Instantiate(catPrefab, new Vector3(5.09f, -6.26f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
+                Instantiate(catPrefab, new Vector3(9.5f, Random.Range(-2.1f, -6.4f), 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
+                // Instantiate(catPrefab, new Vector3(10.09f, -2.1f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
+                // Instantiate(catPrefab, new Vector3(5.09f, -6.4f, 0f), new Quaternion(0f,0f,-0.7071068f,0.7071068f));
             }
         } else {
             resetTimer -= Time.fixedDeltaTime; // update paused timer

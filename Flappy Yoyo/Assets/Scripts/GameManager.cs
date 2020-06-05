@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
 
         if(resetTimer <= 0f) {
-            if(Input.GetMouseButton(0)) { // reset game if player clicks after a short pause
+            if(Input.anyKeyDown) { // reset game if player clicks after a short pause
                 bgmSource.Play();
                 resetFlag = true;
             }

@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// add to index.html: <a href="https://aidanbjelke.com"><h1>< Back to aidanbjelke.com</h1></a>
 public class yoyo : MonoBehaviour
 {
     public float gravity = 0.35f;
-    public float tug = 9f;
-    public float tugRate = 6.0f;
+    public float tug = 9.2f;
+    public float tugRate = 7.0f;
     float nextTugTime = 0f;
     public Vector3 gChange;
     public Vector3 tChange;
@@ -35,7 +35,7 @@ public class yoyo : MonoBehaviour
     {
         if(!Pause.isPaused) {
             if(Time.time > nextTugTime) {
-                 if(Input.GetMouseButtonDown(0)) {
+                 if(Input.anyKeyDown) {
                     hangtime = gDelay;
                     tugging = true;
 
